@@ -14,12 +14,12 @@ def sluchaj_i_zapisuj():
             try:
                 tekst = recognizer.recognize_google(audio, language="pl-PL")
                 print(name + ":" + tekst)
-                with open("zapis_mowy.txt", "a") as plik:
+                with open("words.txt", "a") as plik:
                     plik.write(tekst + "\n")
             except sr.UnknownValueError:
-                print("Nie można rozpoznać mowy")
+                print("Error")
             except sr.RequestError as e:
-                print("Błąd z usługą Google: {0}".format(e))
+                print("Google Error: {0}".format(e))
 
 if __name__ == "__main__":
     sluchaj_i_zapisuj()
